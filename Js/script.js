@@ -21,3 +21,19 @@ toggle.onclick = function (){
     navigation.classList.toggle('active');
     main.classList.toggle('active');
 };
+
+//Order Table
+
+Orders.forEach(order => {
+    const tr = document.createElement('tr');
+    const trContent = `
+                        <td> ${order.productName}</td>
+                        <td>${order.productPrice}</td>
+                        <td>${order.paymentStatus}</td>
+                        <td class="${order.Status === 'Delivered' ? 'Delivered' : order.
+                        Status === 'Pending' ? 'Pending' : 'Declained'} ">${order.Status}</td>
+                        `;
+
+    tr.innerHTML = trContent;
+    document.querySelector('table tbody').appendChild(tr);
+})
